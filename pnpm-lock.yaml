@@ -12,8 +12,8 @@ importers:
         specifier: ^1.4.17
         version: 1.4.17(@better-auth/core@1.4.17(@better-auth/utils@0.3.0)(@better-fetch/fetch@1.1.21)(better-call@1.1.8(zod@4.3.6))(jose@6.1.3)(kysely@0.28.10)(nanostores@1.1.0))(@better-auth/utils@0.3.0)(@better-fetch/fetch@1.1.21)(better-auth@1.4.17(drizzle-kit@0.31.7)(drizzle-orm@0.44.7(@opentelemetry/api@1.9.0)(@types/pg@8.11.6)(@vercel/postgres@0.9.0)(kysely@0.28.10)(pg@8.16.3))(next@16.1.2(@babel/core@7.28.6)(@opentelemetry/api@1.9.0)(@playwright/test@1.56.1)(react-dom@19.2.1(react@19.2.1))(react@19.2.1)(sass@1.77.4))(pg@8.16.3)(react-dom@19.2.1(react@19.2.1))(react@19.2.1)(vitest@3.2.3(@types/debug@4.1.12)(@types/node@22.19.7)(happy-dom@20.3.7(bufferutil@4.1.0)(utf-8-validate@6.0.6))(jiti@2.6.1)(jsdom@26.1.0(bufferutil@4.1.0)(utf-8-validate@6.0.6))(lightningcss@1.30.2)(sass@1.77.4)(tsx@4.20.6)))(better-call@1.1.8(zod@4.3.6))(nanostores@1.1.0)
       '@delmaredigital/payload-better-auth':
-        specifier: ^0.3.4
-        version: 0.3.4(638df221363d82cc560b92692aa4481e)
+        specifier: ^0.3.5
+        version: 0.3.5(638df221363d82cc560b92692aa4481e)
       '@delmaredigital/payload-page-tree':
         specifier: ^0.3.6
         version: 0.3.6(2eea9a7ee78f11c0bf3038a39b4f43a5)
@@ -386,8 +386,8 @@ packages:
   '@date-fns/tz@1.2.0':
     resolution: {integrity: sha512-LBrd7MiJZ9McsOgxqWX7AaxrDjcFVjWH/tIKJd7pnR7McaslGYOP1QmmiBXdJH/H/yLCT+rcQ7FaPBUxRGUtrg==}
 
-  '@delmaredigital/payload-better-auth@0.3.4':
-    resolution: {integrity: sha512-Ot329DBAK02Nxz6uiQXDagAxndiekueIURyTYL/axv3uqmbbYk+90TC5UGRUnYKwS34f2pVxkHOxRUcnsjvW+Q==}
+  '@delmaredigital/payload-better-auth@0.3.5':
+    resolution: {integrity: sha512-B1q39kmZYxmuPogmQ5fyLR1TqW0RRwupEaqmKc9vjhpjoVKTMDQLmclYU8OLVe0S0G1I5wR8/L6V+TDRXPjM0A==}
     engines: {node: ^18.20.2 || >=20.9.0}
     peerDependencies:
       '@payloadcms/next': '>=3.69.0'
@@ -6377,7 +6377,7 @@ snapshots:
 
   '@date-fns/tz@1.2.0': {}
 
-  '@delmaredigital/payload-better-auth@0.3.4(638df221363d82cc560b92692aa4481e)':
+  '@delmaredigital/payload-better-auth@0.3.5(638df221363d82cc560b92692aa4481e)':
     dependencies:
       '@better-auth/passkey': 1.4.17(@better-auth/core@1.4.17(@better-auth/utils@0.3.0)(@better-fetch/fetch@1.1.21)(better-call@1.1.8(zod@4.3.6))(jose@6.1.3)(kysely@0.28.10)(nanostores@1.1.0))(@better-auth/utils@0.3.0)(@better-fetch/fetch@1.1.21)(better-auth@1.4.17(drizzle-kit@0.31.7)(drizzle-orm@0.44.7(@opentelemetry/api@1.9.0)(@types/pg@8.11.6)(@vercel/postgres@0.9.0)(kysely@0.28.10)(pg@8.16.3))(next@16.1.2(@babel/core@7.28.6)(@opentelemetry/api@1.9.0)(@playwright/test@1.56.1)(react-dom@19.2.1(react@19.2.1))(react@19.2.1)(sass@1.77.4))(pg@8.16.3)(react-dom@19.2.1(react@19.2.1))(react@19.2.1)(vitest@3.2.3(@types/debug@4.1.12)(@types/node@22.19.7)(happy-dom@20.3.7(bufferutil@4.1.0)(utf-8-validate@6.0.6))(jiti@2.6.1)(jsdom@26.1.0(bufferutil@4.1.0)(utf-8-validate@6.0.6))(lightningcss@1.30.2)(sass@1.77.4)(tsx@4.20.6)))(better-call@1.1.8(zod@4.3.6))(nanostores@1.1.0)
       '@payloadcms/next': 3.72.0(@types/react@19.2.1)(graphql@16.12.0)(monaco-editor@0.55.1)(next@16.1.2(@babel/core@7.28.6)(@opentelemetry/api@1.9.0)(@playwright/test@1.56.1)(react-dom@19.2.1(react@19.2.1))(react@19.2.1)(sass@1.77.4))(payload@3.72.0(bufferutil@4.1.0)(graphql@16.12.0)(typescript@5.7.3)(utf-8-validate@6.0.6))(react-dom@19.2.1(react@19.2.1))(react@19.2.1)(typescript@5.7.3)
