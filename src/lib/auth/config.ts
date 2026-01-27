@@ -1,6 +1,7 @@
 import type { BetterAuthOptions } from 'better-auth'
-import { twoFactor, apiKey } from 'better-auth/plugins'
+import { twoFactor } from 'better-auth/plugins'
 import { passkey } from '@better-auth/passkey'
+import { apiKeyWithDefaults } from '@delmaredigital/payload-better-auth'
 
 export const betterAuthOptions: Partial<BetterAuthOptions> = {
   // Model names are SINGULAR - they get pluralized automatically
@@ -16,7 +17,7 @@ export const betterAuthOptions: Partial<BetterAuthOptions> = {
   emailAndPassword: { enabled: true },
   plugins: [
     twoFactor(),
-    apiKey(),
+    apiKeyWithDefaults(),
     passkey(),
   ],
 }
