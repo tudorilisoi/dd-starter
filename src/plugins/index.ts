@@ -68,19 +68,19 @@ export const plugins: Plugin[] = [
       },
     },
   }),
-  // Page Tree - hierarchical URL management
-  pageTreePlugin({
-    collections: ['pages', 'posts'],
-    folderSlug: 'payload-folders',
-    segmentFieldName: 'pathSegment',
-    pageSegmentFieldName: 'pageSegment',
-  }),
-  // Puck - visual page editor
+  // Puck - visual page editor (must run BEFORE page-tree so Pages collection exists)
   createPuckPlugin({
     pagesCollection: 'pages',
     layouts: puckLayoutOptions,
     editorStylesheet: 'src/app/(frontend)/globals.css',
     editorStylesheetCompiled: '/puck-editor-styles.css', // Pre-compiled by withPuckCSS at build time
+  }),
+  // Page Tree - hierarchical URL management (runs after Puck creates Pages)
+  pageTreePlugin({
+    collections: ['pages', 'posts'],
+    folderSlug: 'payload-folders',
+    segmentFieldName: 'pathSegment',
+    pageSegmentFieldName: 'pageSegment',
   }),
   // Redirects
   redirectsPlugin({
