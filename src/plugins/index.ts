@@ -19,6 +19,7 @@ import { betterAuth } from 'better-auth'
 
 import { Page, Post } from '@/payload-types'
 import { getServerSideURL } from '@/utilities/getURL'
+import { setAuthInstance } from '@/lib/auth/instance'
 
 const generateTitle: GenerateTitle<Post | Page> = ({ doc }) => {
   return doc?.title ? `${doc.title} | DD Starter` : 'DD Starter'
@@ -38,13 +39,13 @@ export const plugins: Plugin[] = [
   }),
   // Initialize Better Auth with auto-injected endpoints and admin components
   createBetterAuthPlugin({
-    createAuth: (payload) =>
-      betterAuth({
+    createAuth: (payload) => {
+      const auth = betterAuth({
         ...betterAuthOptions,
         database: payloadAdapter({
           payloadClient: payload,
           adapterConfig: {
-            enableDebugLogs: false,
+            enableDebugLogs: true,
           },
         }),
         // For Payload's default SERIAL IDs:
@@ -59,10 +60,18 @@ export const plugins: Plugin[] = [
           'https://localhost:3000',
           process.env.NEXT_PUBLIC_APP_URL,
         ].filter(Boolean) as string[],
-      }),
+      })
+      // Store for use in database hooks
+      setAuthInstance(auth)
+      console.log(`🚀 ~ auth:`, auth)
+
+      return auth
+    },
     admin: {
       betterAuthOptions, // Required for management UI auto-detection
       login: {
+        enableSignUp: true,
+        enableForgotPassword: true,
         enablePasskey: true, // Enable passkey sign-in option
         afterLoginPath: '/admin/page-tree', // Redirect to page tree after login
       },

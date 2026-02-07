@@ -61,12 +61,12 @@ export default buildConfig({
   cors: [getServerSideURL()].filter(Boolean),
   plugins: [
     ...plugins,
-    vercelBlobStorage({
+    /*  vercelBlobStorage({
       collections: {
         media: true,
       },
       token: process.env.BLOB_READ_WRITE_TOKEN || '',
-    }),
+    }), */
   ],
   globals: [Header, Footer],
   secret: process.env.PAYLOAD_SECRET,
