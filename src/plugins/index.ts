@@ -45,7 +45,7 @@ export const plugins: Plugin[] = [
         database: payloadAdapter({
           payloadClient: payload,
           adapterConfig: {
-            enableDebugLogs: true,
+            enableDebugLogs: false,
           },
         }),
         // For Payload's default SERIAL IDs:
