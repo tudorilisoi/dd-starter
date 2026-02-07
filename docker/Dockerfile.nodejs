@@ -1,0 +1,29 @@
+FROM  docker.io/bitnami/node:20@sha256:0f2d82653b566553b5c643d686965966332104a81217d78f94a1a34f3ff7abff
+ENV DEBIAN_FRONTEND noninteractive
+
+
+RUN install_packages iputils-ping build-essential libpq-dev openssl sudo mc locales locales-all psmisc \
+  htop libjemalloc-dev \
+  graphicsmagick
+
+RUN locale-gen en_US.UTF-8
+ENV LANG='en_US.UTF-8' LANGUAGE='en_US:en' LC_ALL='en_US.UTF-8'
+RUN echo "LC_ALL=en_US.UTF-8" >> /etc/environment
+RUN echo "en_US.UTF-8 UTF-8" >> /etc/locale.gen
+RUN echo "LANG=en_US.UTF-8" > /etc/locale.conf
+
+# for node sharp memory leaks
+# https://github.com/lovell/sharp/issues/1803#issuecomment-1314897269
+ENV LD_PRELOAD /usr/lib/x86_64-linux-gnu/libjemalloc.so.2
+RUN echo "/usr/lib/x86_64-linux-gnu/libjemalloc.so.2" >> /etc/ld.so.preload
+
+ENV PATH /app/node_modules/.bin:$PATH
+RUN npm i -g npm@10.5.1
+# USER root
+# WORKDIR /app
+ENV TINI_VERSION v0.19.0
+ADD https://github.com/krallin/tini/releases/download/${TINI_VERSION}/tini /tini
+RUN chmod +x /tini
+ENTRYPOINT ["/tini", "--"]
+
+

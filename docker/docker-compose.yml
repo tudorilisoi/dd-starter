@@ -1,0 +1,48 @@
+# NOTE version is important for mem_limit, no swarm
+version: "2"
+name: "payload-puck"
+services:
+  db:
+    build:
+      context: .
+      dockerfile: ./Dockerfile.postgres
+
+    container_name: "payload-puck-pg"
+    env_file: ./.env
+    tty: true # Enables debugging capabilities when attached to this container.
+    # stdin_open: true
+    ports:
+      - 5492:5432
+    volumes:
+      - ../../payload-puck-data/pg:/var/lib/postgresql/data
+
+
+  # web:
+  #   env_file: ./.env.generated
+  #   mem_limit: ${WEB_MEM_LIMIT}
+
+  #   build:
+  #     context: .
+  #     dockerfile: ./Dockerfile.nodejs
+  #     args:
+  #       CURRENT_GUID: ${CURRENT_GUID}
+  #       CURRENT_UID: ${CURRENT_UID}
+  #   container_name: "payload-puck-http"
+  #   tty: true # Enables debugging capabilities when attached to this container.
+
+  #   depends_on:
+  #     - db
+  #   links:
+  #     - db
+  #   command: sh -c '${WEB_CMD}'
+  #   ports:
+  #     - 3200:3200
+  #     - 5173:5173
+  #   volumes:
+  #     - ../:/app
+  #     - /tmp/rp-web-tmp/:/tmp
+  #     - /tmp/rp-web-cache/:/home/tudor/.cache
+networks:
+  payload-puck-network:        # define named network
+    name: payload-puck-network  # optional: custom name in Docker
+    driver: bridge            # default driver

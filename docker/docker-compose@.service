@@ -1,0 +1,17 @@
+[Unit]
+Description=%i service with docker compose
+PartOf=docker.service
+After=docker.service
+
+[Service]
+Type=simple
+Restart=always
+RemainAfterExit=true
+WorkingDirectory=WDIR
+User=tudor
+Group=tudor
+ExecStart=WDIR/run-compose.sh start
+ExecStop=WDIR/run-compose.sh stop
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,10 @@
+FROM postgres:14@sha256:062b02051873a101837543675b5b4601cba06b1972d22f4b7969adbde5a280e4
+ENV DEBIAN_FRONTEND noninteractive
+
+#TODO make this into a script for both pg and node
+RUN apt-get update && apt-get install -y iputils-ping \
+&& apt-get clean && rm -rf /var/lib/apt/lists/*
+
+#custom port so we don-t clash with the host
+#CMD ["-p", "5452"]
+
